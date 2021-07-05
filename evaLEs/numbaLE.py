@@ -16,11 +16,6 @@ def motion(func, t, x, p):
 def RK4(f, x, t1, t2, p):
     """
     Fourth-order, 4-step RK routine.
-    Returns the step, i.e. approximation to the integral.
-    If x is defined at time t_1, then stim should be an array of
-    stimulus values at times t_1, (t_1+t_2)/2, and t_2 (i.e. at t1 and t2, as
-    well as at the midpoint).
-    Alternatively, stim may be a function pointer.
     """
     tmid = (t1 + t2)/2
     dt = t2 - t1
@@ -47,12 +42,7 @@ def dSdt(func, fjac, t,  S, p, D):
 @njit
 def varRK4(func, fjac, x, t1, t2, p, D):
     """
-    Fourth-order, 4-step RK routine.
-    Returns the step, i.e. approximation to the integral.
-    If x is defined at time t_1, then stim should be an array of
-    stimulus values at times t_1, (t_1+t_2)/2, and t_2 (i.e. at t1 and t2, as
-    well as at the midpoint).
-    Alternatively, stim may be a function pointer.
+    Fourth-order, 4-step RK routine for variational matrix.
     """
     tmid = (t1 + t2)/2
     dt = t2 - t1
@@ -70,20 +60,19 @@ def break_cond(f, xi, lim_dead):
     return c1
 
 @njit
-def computeLE(func, fjac, x0, t, p, ttrans=None):
+def computeLE(func, fjac, x0, t, p = (), ttrans=None):
     """
     Computes the global Lyapunov exponents for a set of ODEs.
     f - ODE function. Must take arguments like f(t, x, p) where x and t are 
         the state and time *now*, and p is a tuple of parameters. If there are 
         no model paramters, p should be set to the empty tuple.
+    fjac - Jacobian of f.
     x0 - Initial position for calculation. Integration of transients will begin 
          from this point.
     t - Array of times over which to calculate LE.
     p - (optional) Tuple of model parameters for f.
-    fjac - Jacobian of f.
     ttrans - (optional) Times over which to integrate transient behavior.
              If not specified, assumes trajectory is on the attractor.
-    method - (optional) Integration method to be used by scipy.integrate.ode.
     """
     D = len(x0)
     N = len(t)
