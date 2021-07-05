@@ -23,5 +23,4 @@ Indices and tables
 
 
 .. automodule:: LE.computeLE
-..
    :members:
