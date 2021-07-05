@@ -22,7 +22,7 @@ Indices and tables
 
 
 
-.. automodule:: io
+.. automodule:: LE
    :members:
 
 
