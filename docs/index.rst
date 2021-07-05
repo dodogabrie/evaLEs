@@ -10,7 +10,6 @@ Welcome to evaLEs's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-evaLE
 
 Indices and tables
 ==================
