@@ -1,4 +1,4 @@
-import unittest
+from unittest import TestCase
 import numpy.testing as nptest
 import evaLEs.core as ly
 import numpy as np
@@ -20,16 +20,16 @@ def J(t, val, p):
     return J
 
 
-class TestCore(nptest):
+class TestCore(TestCase):
     """ unittest for core module"""
-    def test_lyap(self):
+    def test_lyap():
         p = np.array([-0.01, -0.03], dtype=np.float64)
         init = np.array([0.1, 0.1], dtype=np.float64)
         ttrans = np.arange(0.0, 10, 0.1, dtype=np.float64)
         t = np.arange(0.0, 10, 0.01, dtype=np.float64)
         LE = ly.computeLE(ODE, J, init, t, p, ttrans)
 
-        self.assert_allclose(LE[-1], np.array[ -0.1, -0.3 ])
+        nptest.assert_allclose(LE[-1], np.array[ -0.1, -0.3 ])
 
 if __name__ == '__main__':
     unittest.main()
