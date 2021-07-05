@@ -85,7 +85,6 @@ def computeLE(func, fjac, x0, t, p, ttrans=None):
              If not specified, assumes trajectory is on the attractor.
     method - (optional) Integration method to be used by scipy.integrate.ode.
     """
-    block = False
     D = len(x0)
     N = len(t)
     if ttrans is not None:
@@ -123,4 +122,4 @@ def computeLE(func, fjac, x0, t, p, ttrans=None):
         else:
             LE_aux[i, :] = logLE
         final_LE[i] = LE_aux[i]/(t2)
-    return final_LE, block
+    return final_LE
