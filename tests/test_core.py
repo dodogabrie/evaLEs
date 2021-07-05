@@ -1,4 +1,4 @@
-from unittest import TestCase
+import unittest
 import numpy.testing as nptest
 import evaLEs.core as ly
 import numpy as np
@@ -20,7 +20,7 @@ def J(t, val, p):
     return J
 
 
-class TestCore(TestCase):
+class TestCore(unittest.TestCase):
     """ unittest for core module"""
     def test_lyap():
         p = np.array([-0.01, -0.03], dtype=np.float64)
