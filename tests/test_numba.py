@@ -1,6 +1,6 @@
 import unittest
 import numpy.testing as nptest
-import evaLEs.core as ly
+import evaLEs.numbaLE as ly
 import numpy as np
 from numba import njit
 
