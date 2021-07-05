@@ -23,7 +23,8 @@ setup_args = dict(
 install_requires = [
     'numba',
     'numpy', 
-    'scipy'
+    'scipy',
+    'setuptools'
 ]
 
 if __name__ == '__main__':
