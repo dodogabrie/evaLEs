@@ -48,4 +48,3 @@ def varRK4(func, fjac, x, t1, t2, p, D):
     K4 = dSdt(func, fjac, t2, x + dt*K3, p, D)
 
     return dt * (K1/2 + K2 + K3 + K4/2) / 3
-
