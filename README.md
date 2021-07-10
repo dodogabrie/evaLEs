@@ -1,7 +1,7 @@
 # evaLEs
 Evaluate the Lyapunov Spectrum of a dynamical system described by ODEs 
 
-Project inspirated from [paulrozdeba/pyLyapunov](https://github.com/paulrozdeba/pyLyapunov). 
+[Documentation](https://evales.readthedocs.io/en/latest/?badge=latest.)
 
 # How to install:
 ```
