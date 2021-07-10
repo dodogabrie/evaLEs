@@ -1,29 +1,19 @@
-evaLEs package
-==============
+Python Version: evaLEs.LE 
+-------------------------
 
-Submodules
-----------
-
-evaLEs.LE module
-----------------
+Python function without Numba
 
 .. automodule:: evaLEs.LE
    :members:
    :undoc-members:
    :show-inheritance:
 
-evaLEs.numbaLE module
----------------------
+Python + Numba Version: evaLEs.numbaLE
+--------------------------------------
+
+Python function with Numba
 
 .. automodule:: evaLEs.numbaLE
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-Module contents
----------------
-
-.. automodule:: evaLEs
    :members:
    :undoc-members:
    :show-inheritance:
