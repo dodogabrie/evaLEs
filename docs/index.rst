@@ -6,6 +6,10 @@
 Welcome to evaLEs's documentation!
 ==================================
 
+evaLEs is a package based on Python scientific ecosystem allowing 
+to calculate the lyapunov spectrum of a generic Dynamical System described 
+by ODEs or a map.
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
