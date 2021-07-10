@@ -8,7 +8,7 @@ with open('HISTORY.md') as history_file:
 
 setup_args = dict(
     name='evaLEs',
-    version='0.1',
+    version='0.1.1',
     description='Evaluate the Lyapunov Spectrum of a Dynamical System',
     long_description_content_type="text/markdown",
     long_description=README + '\n\n' + HISTORY,
