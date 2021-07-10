@@ -7,7 +7,7 @@ from numba import njit
 from evaLEs.numba_utils import motion, benedettin
 
 #@njit
-def computeLE(func, fjac, x0, t, p = (), ttrans=None, continuos=True):
+def computeLE(func, fjac, x0, t, p = (), ttrans=None, continuous=True):
     """
     Computes the global Lyapunov exponents for a set of ODEs.
 
@@ -32,8 +32,8 @@ def computeLE(func, fjac, x0, t, p = (), ttrans=None, continuos=True):
     :rtype: numpy array.
     """
     if ttrans is not None:
-        x0 = motion(func, ttrans, x0, p, continuos)[-1]
+        x0 = motion(func, ttrans, x0, p, continuous)[-1]
         
     # start LE calculation
-    final_LE = benedettin(func, fjac, x0, t, p, ttrans, continuos)
+    final_LE = benedettin(func, fjac, x0, t, p, ttrans, continuous)
     return final_LE

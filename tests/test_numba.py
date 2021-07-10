@@ -49,7 +49,7 @@ class TestCore(unittest.TestCase):
         init = np.array([0.1], dtype=np.float64)
         ttrans = np.arange(0.0, 3000, 1, dtype=np.float64)
         t = np.arange(0.0, 100, 1, dtype=np.float64)
-        LE = ly.computeLE(logmap, logmapJac, init, t, param, ttrans, continuos = False)
+        LE = ly.computeLE(logmap, logmapJac, init, t, param, ttrans, continuous = False)
         nptest.assert_allclose(LE[-1], np.array([ np.log(2)]), atol=0.005)
 
 if __name__ == '__main__':

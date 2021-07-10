@@ -2,7 +2,7 @@ import numpy as np
 from numba import njit
 
 @njit
-def benedettin(func, fjac, x0, t, p, ttrans, continuos):
+def benedettin(func, fjac, x0, t, p, ttrans, continuous):
     N = len(t)
     D = len(x0)
     Phi0 = np.eye(D, dtype=np.float64).flatten() # Identità di tipo float
@@ -12,7 +12,7 @@ def benedettin(func, fjac, x0, t, p, ttrans, continuos):
     Ssol = np.zeros((N, D*(D+1)), dtype=np.float64)
     Ssol[0] = np.append(x0, Phi0)
     for i,(t1,t2) in enumerate(zip(t[:-1], t[1:])):
-        if continuos:
+        if continuous:
             Ssol_temp = Ssol[i] + varRK4(func, fjac, Ssol[i], t1, t2, p, D)
         else:
             Ssol_temp = dSdt(func, fjac, t1, Ssol[i], p, D)
@@ -30,13 +30,13 @@ def benedettin(func, fjac, x0, t, p, ttrans, continuos):
     return final_LE
 
 @njit
-def motion(func, t, init, p, continuos=True):
+def motion(func, t, init, p, continuous=True):
     """
     Basic Function for evaluate trajectory in the dynamical system with RK4
     """
     x = np.ones((len(t), len(init)))*init
     for i,(t1,t2) in enumerate(zip(t[:-1], t[1:])):
-        if continuos:
+        if continuous:
             x[i+1] = x[i] + RK4(func, x[i], t1, t2, p)
         else:
             x[i+1] = func(t1, x[i], p)
