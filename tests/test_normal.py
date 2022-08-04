@@ -1,3 +1,5 @@
+import sys
+sys.path.append('../')
 import unittest
 import numpy.testing as nptest
 import evaLEs.LE as ly
