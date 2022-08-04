@@ -12,3 +12,8 @@
 
 - Update Readme
 - Bad semantic assigned to variables fixed
+
+# evaLEs v0.1.3
+
+- Bug Fixed
+- Added history of the solution of the ODE in t
