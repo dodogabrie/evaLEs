@@ -2,11 +2,8 @@
 Calculate the Lyapunov exponents for a set of ODEs using the method described 
 in Sandri (1996), through the use of the variational matrix.
 """
-import numpy as np
-from numba import njit
 from evaLEs.numba_utils import motion, benedettin
 
-#@njit
 def computeLE(func, fjac, x0, t, p = (), ttrans=None, continuous=True):
     """
     Computes the global Lyapunov exponents for a set of ODEs.
@@ -32,8 +29,8 @@ def computeLE(func, fjac, x0, t, p = (), ttrans=None, continuous=True):
     :rtype: numpy array.
     """
     if ttrans is not None:
-        x0 = motion(func, ttrans, x0, p, continuous)[-1]
+        x0 = motion(func, ttrans, x0, p, continuous)
         
     # start LE calculation
-    final_LE = benedettin(func, fjac, x0, t, p, ttrans, continuous)
-    return final_LE
+    final_LE, sol = benedettin(func, fjac, x0, t, p, continuous)
+    return final_LE, sol
