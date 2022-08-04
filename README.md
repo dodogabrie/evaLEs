@@ -3,7 +3,7 @@ Evaluate the Lyapunov Spectrum of a dynamical system described by ODEs
 
 [Documentation](https://evales.readthedocs.io/en/latest/?badge=latest.)
 
-[Examples](https://nbviewer.jupyter.org/github/dodogabrie/evaLEs/blob/docs/notebooks/HowToUse.ipynb)
+[Examples](https://nbviewer.org/github/dodogabrie/evaLEs/blob/main/docs/notebooks/HowToUse.ipynb)
 
 Article of [Sandri](https://www.researchgate.net/publication/240477720_Numerical_calculation_of_Lyapunov_exponents) about the algorithm of Benedettin et al.
 
