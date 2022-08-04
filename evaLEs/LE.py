@@ -30,8 +30,8 @@ def computeLE(func, fjac, x0, t, p=(), ttrans=None, continuous = True):
     :rtype: numpy array.
     """
     if ttrans is not None:
-        x0 = motion(func, ttrans, x0, p, continuous)[-1]
+        x0 = motion(func, ttrans, x0, p, continuous)
         
     # start LE calculation
-    final_LE = benedettin(func, fjac, x0, t, p, ttrans, continuous)
+    final_LE = benedettin(func, fjac, x0, t, p, continuous)
     return final_LE

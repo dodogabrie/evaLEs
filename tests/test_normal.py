@@ -25,7 +25,7 @@ class TestCore(unittest.TestCase):
         init = np.array([0.1, 0.1], dtype=np.float64)
         ttrans = np.arange(0.0, 10, 0.1, dtype=np.float64)
         t = np.arange(0.0, 10, 0.01, dtype=np.float64)
-        LE = ly.computeLE(ODE, J, init, t, p, ttrans)
+        LE, _ = ly.computeLE(ODE, J, init, t, p, ttrans)
         nptest.assert_allclose(LE[-1], np.array([ -0.01, -0.03 ]))
 
     @staticmethod
@@ -45,7 +45,7 @@ class TestCore(unittest.TestCase):
         init = np.array([0.1], dtype=np.float64)
         ttrans = np.arange(0.0, 3000, 1, dtype=np.float64)
         t = np.arange(0.0, 100, 1, dtype=np.float64)
-        LE = ly.computeLE(logmap, logmapJac, init, t, param, ttrans, continuous = False)
+        LE, _ = ly.computeLE(logmap, logmapJac, init, t, param, ttrans, continuous = False)
         nptest.assert_allclose(LE[-1], np.array([ np.log(2)]), atol=0.005)
 if __name__ == '__main__':
     unittest.main()
