@@ -25,8 +25,8 @@ def computeLE(func, fjac, x0, t, p = (), ttrans=None, continuous=True):
     :param continuos: (optional) If set True the algorithm assumes a continue dynamical system (and integrate with RG4). Else it will assume a discrete dynamical system (map) and just uses the step defined in func.
         If not specified continuos dynamical system is assumed.
     :type continuos: boolean.
-    :return: Return the Lyapunov Spectrum evaluated at each instant in a numpy array.
-    :rtype: numpy array.
+    :return: Return the Lyapunov Spectrum evaluated at each instant in a numpy array and the solution in time.
+    :rtype: (numpy array, numpy array).
     """
     if ttrans is not None:
         x0 = motion(func, ttrans, x0, p, continuous)
